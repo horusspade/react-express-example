@@ -7,7 +7,8 @@ class List extends Component {
     this.state = {
         list: [],
         summoner: {},
-        match: {}
+        match: {},
+        champion: {}
     }
   }
 
@@ -16,6 +17,7 @@ class List extends Component {
       this.getList();
       this.getSummoner();
       this.getMatch();
+      this.getChampion();
   }
 
   // Retrieves the list of items from the Express app
@@ -31,6 +33,12 @@ class List extends Component {
             .then(summoner => this.setState({ summoner }))
 
     }
+    getChampion = () => {
+      fetch('/api/lolc')
+          .then(res => res.json())
+          .then(champion => this.setState({ champion }))
+
+  }
   getList = () => {
     fetch('/api/getList')
     .then(res => res.json())
@@ -45,15 +53,14 @@ class List extends Component {
       const { list } = this.state;
       const { summoner } = this.state;
       const { match } = this.state;
+      const { champion } = this.state;
 
       return (
           <div className="App">
               <h1>{summoner.name}</h1>
               <h1>{summoner.accountId}</h1>
-              <h1>{match.lane}
-
-              </h1>
-        
+              <h1>{match.lane}</h1>
+              <h1>{champion.lore}</h1>
 
 
 
