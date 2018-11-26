@@ -51,9 +51,13 @@ app.get('/api/lolm', (req, res) => {
 });
 
 app.get('/api/lolc', (req, res) => {
-    var data = lolchamp;
-    res.json(data);
+    var json_data = lolchamp;
+    const arr = Object.keys(json_data).map((key) => [key, json_data[key]]);
+    const arr2 = Object.keys(json_data);
+    res.json(arr);
     console.log("lol diana sent")
+    console.log(arr2)
+    
 });
 
 fetch(lolm)
@@ -74,7 +78,7 @@ getLol();
     
  fetch(testchamp)
     .then(response => response.json())
-    .then(data => console.log(lolchamp = data.data.Diana))
+    .then(data => console.log(lolchamp = data.data.Diana.stats))
 
 
 // Handles any requests that don't match the ones above

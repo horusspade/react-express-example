@@ -1,7 +1,7 @@
 {
-  "name": "react-express-example",
+  "name": "Damage-calc",
   "version": "1.0.0",
-  "description": "",
+  "description": "Lol Damage Calc",
   "main": "index.js",
   "author": "Omari Joseph",
   "scripts": {

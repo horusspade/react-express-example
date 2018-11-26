@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { stat } from 'fs';
 
 class List extends Component {
   // Initialize the state
@@ -8,7 +9,7 @@ class List extends Component {
         list: [],
         summoner: {},
         match: {},
-        champion: {}
+        champion: []
     }
   }
 
@@ -60,7 +61,17 @@ class List extends Component {
               <h1>{summoner.name}</h1>
               <h1>{summoner.accountId}</h1>
               <h1>{match.lane}</h1>
-              <h1>{champion.lore}</h1>
+              <h1>{champion[1]} stats</h1>
+              <h1>{champion.map((item) => {
+              return(
+                <div>
+                  {item[0]} :  {item[1]}
+                </div>
+              );
+            })
+
+
+              } stats</h1>
 
 
 
